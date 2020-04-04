@@ -12,9 +12,7 @@ export class AuthComponent implements OnInit{
 
   ngOnInit(): void {
       this.router.navigate(['/login'])
-        .then(() => {
-          console.log('Navagate to login page')
-        })
+
   }
 
 
