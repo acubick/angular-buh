@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 import { Message } from '../../shared/models/message.model'
 import { User } from '../../shared/models/user.model'
+import { AuthService } from '../../shared/services/auth.service'
 import { UsersService } from '../../shared/services/users.service'
 
 @Component({
@@ -15,7 +17,9 @@ export class LoginComponent implements OnInit {
   message: Message
 
   constructor(
-    private usersService: UsersService
+    private usersService: UsersService,
+    private authService: AuthService,
+    private router: Router
   ) {
 
   }
@@ -48,7 +52,10 @@ export class LoginComponent implements OnInit {
       .subscribe((user:User) => {
         if(user[0]){
           if(user[0].password === formData.password) {
-
+            this.message.text = ''
+            window.localStorage.setItem('user', JSON.stringify(user))
+              this.authService.login()
+            this.router.navigate([''])
           } else{
             this.showMessage('пароль не верный')
           }
