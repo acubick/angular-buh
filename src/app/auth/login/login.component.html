@@ -1,4 +1,11 @@
 <p class="text-xs-center">Войдите для работы</p>
+
+  <div
+    *ngIf="message.text"
+    class="alert alert-{{ message.type }}">
+       {{ message.text }}
+  </div>
+<!-- /.alert -->
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div
     class="form-group"

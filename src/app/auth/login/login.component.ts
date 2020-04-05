@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Message } from '../../shared/models/message.model'
+import { User } from '../../shared/models/user.model'
+import { UsersService } from '../../shared/services/users.service'
 
 @Component({
   selector: 'app-login',
@@ -9,8 +12,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   form: FormGroup
+  message: Message
 
-  constructor() { }
+  constructor(
+    private usersService: UsersService
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup( {
@@ -20,9 +28,34 @@ export class LoginComponent implements OnInit {
         Validators.minLength( 6 )
       ] )
     } );
+    this.message = new Message( '', 'danger')
+  }
+
+  private showMessage (text: string = '', type: string = 'danger'){
+    this.message.text = text
+    this.message.type = type
+
+    window.setTimeout(() => {
+      this.message.text = ''
+    }, 5000)
+
   }
 
   onSubmit() {
-    console.log(this.form)
-  }
+    console.log('submit work')
+    const formData = this.form.value
+    this.usersService.getUserByEmail(formData.email)
+      .subscribe((user:User) => {
+        if(user[0]){
+          if(user[0].password === formData.password) {
+
+          } else{
+            this.showMessage('пароль не верный')
+          }
+        } else{
+          this.showMessage('Такого пользователя не существует')
+        }
+      })
+    }
+
 }
