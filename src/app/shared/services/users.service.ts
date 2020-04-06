@@ -16,14 +16,18 @@ export class UsersService implements OnInit{
    getUserByEmail(email: string): Observable<User>{
 
      return this.http.get<User>(`http://localhost:3000/users?email=${email}`)
+     //TODO: попробовать тут вернуть user[0] через метод map
+      .pipe( map((user: User) => user[0] ? user[0] : undefined))
+
   }
 
   ngOnInit(): void {
     // this.getUserByEmail('wfm@mail.ru')
     console.log('this is user service')
   }
-  log(){
-    console.log('this is user service.log()')
+  createNewUser(user: User): Observable<User>{
+     return this.http.post<User>(`http://localhost:3000/users`, user)
+
   }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { User } from './models/user.model'
 
 @NgModule({
   imports: [
