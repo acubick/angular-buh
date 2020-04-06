@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { Router } from '@angular/router'
+import { ActivatedRoute, Params, Router } from '@angular/router'
 import { Message } from '../../shared/models/message.model'
 import { User } from '../../shared/models/user.model'
 import { AuthService } from '../../shared/services/auth.service'
@@ -19,12 +19,15 @@ export class LoginComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
 
   }
 
   ngOnInit(): void {
+
+
     this.form = new FormGroup( {
       email:    new FormControl( null, [ Validators.required, Validators.email ] ),
       password: new FormControl( null, [
@@ -33,6 +36,13 @@ export class LoginComponent implements OnInit {
       ] )
     } );
     this.message = new Message( '', 'danger')
+
+    this.route.queryParams
+        .subscribe((params: Params) => {
+          if(params['nowCanLogin']){
+            this.showMessage('Теперь вы можете зайти в систему', 'success')
+          }
+        })
   }
 
   private showMessage (text: string = '', type: string = 'danger'){

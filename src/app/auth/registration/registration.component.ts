@@ -1,21 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-// import { User } from '../../shared/models/user.model'
+import { Router } from '@angular/router'
+import { User } from '../../shared/models/user.model'
 import { UsersService } from '../../shared/services/users.service'
 
 
-export class User {
-  public email: string
-  public password: string
-  public name: string
-  public id?: number
-
-  constructor(email: string = 'testE', password: string = 'testP', name: string = 'testN') { }
-
-
-
-
-}
 
 @Component({
   selector: 'app-registration',
@@ -27,7 +16,8 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup
 
   constructor(
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,17 +30,16 @@ export class RegistrationComponent implements OnInit {
     })
   }
 
-  onSubmit(form: FormGroup) {
-    const email = this.form.value.email
-    const password = this.form.value.password
-    const name= this.form.value.name
+  onSubmit() {
+    const {email, password, name } = this.form.value
      const user = new User(email, password, name)
-    console.log('this.form.value', this.form.value.email)
-    console.log('this.form.value', email, password, name)
-    console.log('user', user)
     this.usersService.createNewUser(user)
       .subscribe((user: User) => {
-        console.log('user: ', user)
+        this.router.navigate(['/login'], {
+          queryParams:{
+            nowCanLogin: true
+          }
+        })
       })
   }
 }
