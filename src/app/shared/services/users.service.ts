@@ -22,7 +22,6 @@ export class UsersService implements OnInit{
   }
 
   ngOnInit(): void {
-    // this.getUserByEmail('wfm@mail.ru')
     console.log('this is user service')
   }
   createNewUser(user: User): Observable<User>{
