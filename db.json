@@ -11,30 +11,6 @@
       "email": "a@gmail.com",
       "password": "123456",
       "name": "User"
-    },
-    {
-      "email": "a@gmail.com",
-      "password": "saDFggfh",
-      "name": "dsfghfg",
-      "id": 3
-    },
-    {
-      "email": "a@gmail.com",
-      "password": "123456",
-      "name": "qwerty",
-      "id": 4
-    },
-    {
-      "email": "a@gmail.com",
-      "password": "234567",
-      "name": "qwerty",
-      "id": 5
-    },
-    {
-      "email": "a@gmail.com",
-      "password": "123456",
-      "name": "qwerty",
-      "id": 6
     }
   ],
   "bill": {
