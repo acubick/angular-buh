@@ -11,8 +11,15 @@ import { BillService } from '../shared/services/bill.service'
 })
 export class BillPageComponent implements OnInit, OnDestroy {
 
+  currency: any
+  bill: BillModel
+
+  isLoaded = false
 
   sub1: Subscription
+  sub2: Subscription
+
+
 
   constructor(
     private billService: BillService
@@ -25,13 +32,28 @@ export class BillPageComponent implements OnInit, OnDestroy {
       this.billService.getCurrency()
      ]
     ).subscribe((data: [BillModel, any])=> {
-      console.log(data)
+     this.bill = data[0]
+     this.currency = data[1]
+     this.isLoaded = true
     })
   }
 
   ngOnDestroy(): void {
-    if(this.sub1){}
-    this.sub1.unsubscribe()
+    if(this.sub1){
+      this.sub1.unsubscribe()
+    }
+    if(this.sub2){
+      this.sub2.unsubscribe()
+    }
+
   }
 
+  onRefresh() {
+    this.isLoaded = false
+    this.sub2 = this.billService.getCurrency()
+        .subscribe((currency: any)=> {
+          this.currency = currency
+          this.isLoaded = true
+        })
+  }
 }
