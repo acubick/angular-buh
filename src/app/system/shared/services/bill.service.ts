@@ -9,7 +9,7 @@ import { BillModel } from '../models/bill.model'
 export class BillService extends BaseApi{
   API_KEY           = 'b3723b8aec8f03cb656f1171ce12d3ed'
   base              = 'USD'
-  symbols           = 'RUB,EUR,USD'
+  symbols           = 'RUB,EUR,USD,UAH'
   currencyServerURL = `http://data.fixer.io/api/latest?access_key=${ this.API_KEY }`
 
   constructor(public http: HttpClient) {
