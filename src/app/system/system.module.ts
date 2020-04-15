@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module'
 import { DropdownDirective } from './shared/directives/dropdown.directive'
 import { MomentPipe } from './shared/pipes/moment.pipe'
 import { BillService } from './shared/services/bill.service'
+import { CategoriesService } from './shared/services/categories.service'
 import { SystemRoutingModule } from './system-routing.module';
 import { BillPageComponent } from './bill-page/bill-page.component';
 import { HistoryPageComponent } from './history-page/history-page.component';
@@ -40,7 +41,7 @@ import { EditCategoryComponent } from './records-page/edit-category/edit-categor
       AddCategoryComponent,
       EditCategoryComponent
     ],
-  providers:[BillService]
+  providers:[BillService, CategoriesService]
   })
 
 export class SystemModule {

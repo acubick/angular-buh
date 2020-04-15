@@ -32,6 +32,26 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "qwerty",
+      "capacity": 3,
+      "id": 4
+    },
+    {
+      "name": "qwerty",
+      "capacity": 354663,
+      "id": 5
+    },
+    {
+      "name": "qwerty",
+      "capacity": 621341565263,
+      "id": 6
+    },
+    {
+      "name": "qwerty",
+      "capacity": 1213415,
+      "id": 7
     }
   ],
   "events": [
