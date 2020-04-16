@@ -22,7 +22,7 @@ export class EditCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = new Message( 'success', '' )
-    console.log( this.message )
+    // console.log( this.message )
     this.onCategoryChange()
   }
 
