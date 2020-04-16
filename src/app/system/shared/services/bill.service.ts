@@ -25,6 +25,10 @@ export class BillService extends BaseApi{
     return this.get('bill')
   }
 
+  updateBill(bill: BillModel):Observable<BillModel>{
+    return  this.put('bill', bill)
+  }
+
   getCurrency(base: string = 'USD'):Observable<any> {
     return this.http.get(
       `${this.currencyServerURL}&symbols=${ this.symbols }` )

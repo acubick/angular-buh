@@ -79,6 +79,30 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "income",
+      "amount": 1200,
+      "category": 8,
+      "date": "16.04.2020 11.42.59",
+      "description": "test",
+      "id": 6
+    },
+    {
+      "type": "income",
+      "amount": 1333,
+      "category": 8,
+      "date": "16.04.2020 11.45.02",
+      "description": "test2",
+      "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 14444,
+      "category": 8,
+      "date": "16.04.2020 11.46.54",
+      "description": "ytrew",
+      "id": 8
     }
   ]
 }
