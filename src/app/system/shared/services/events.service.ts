@@ -7,6 +7,9 @@ import { APPEvent } from '../models/event.model'
 
 @Injectable()
 export class EventsService extends BaseApi{
+
+
+
      constructor(public http: HttpClient) {
        super(http);
      }
@@ -15,6 +18,10 @@ export class EventsService extends BaseApi{
 
      addEvent(event: APPEvent):Observable<APPEvent>{
        return  this.post('events', event)
+     }
+
+     getEvents():Observable<APPEvent[]>{
+       return this.get('events')
      }
 
 }

@@ -14,7 +14,7 @@
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 98800,
     "currency": "RUB"
   },
   "categories": [
@@ -103,6 +103,14 @@
       "date": "16.04.2020 11.46.54",
       "description": "ytrew",
       "id": 8
+    },
+    {
+      "type": "outcome",
+      "amount": 1200,
+      "category": 3,
+      "date": "16.04.2020 21.13.51",
+      "description": "test",
+      "id": 9
     }
   ]
 }
