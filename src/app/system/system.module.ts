@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
+import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { SharedModule } from '../shared/shared.module'
 import { DropdownDirective } from './shared/directives/dropdown.directive'
 import { MomentPipe } from './shared/pipes/moment.pipe'
@@ -28,7 +29,8 @@ import { HistoryFilterComponent } from './history-page/history-filter/history-fi
     imports:[
       CommonModule,
       SharedModule,
-      SystemRoutingModule
+      SystemRoutingModule,
+      NgxChartsModule
     ],
     declarations: [
       BillPageComponent,
