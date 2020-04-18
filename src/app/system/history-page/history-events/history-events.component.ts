@@ -11,11 +11,15 @@ export class HistoryEventsComponent implements OnInit {
 
   @Input() categories: Category[] = []
   @Input() events: APPEvent[]  = []
+  searchValue = ''
+  searchPlaceholder = 'Сумма'
+  searchField = 'amount'
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log('categories', this.categories)
-    console.log('events', this.events)
+    // console.log('categories', this.categories)
+    // console.log('events', this.events)
     this.events.forEach((e) => {
       //Ищем имя категории по id и возвращаем его
       e.catName = this.categories.find(c => c.id === e.category).name
@@ -31,4 +35,20 @@ export class HistoryEventsComponent implements OnInit {
          'label-success': e.type === 'income'
        }
   }
+
+  changeCriteria(field: string){
+    // Карта с названиями категорий
+    const namesMap = {
+      amount: 'Сумма',
+      date:'Дата',
+      category: 'Категория',
+      type: 'Тип'
+    }
+    // Задаем значения  placeholder
+    this.searchPlaceholder = namesMap[field]
+    this.searchField = field
+
+  }
+
+
 }

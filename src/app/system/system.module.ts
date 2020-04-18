@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { NgxChartsModule } from '@swimlane/ngx-charts'
+
 import { SharedModule } from '../shared/shared.module'
 import { DropdownDirective } from './shared/directives/dropdown.directive'
+import { FilterPipe } from './shared/pipes/filter.pipe'
 import { MomentPipe } from './shared/pipes/moment.pipe'
 import { BillService } from './shared/services/bill.service'
 import { CategoriesService } from './shared/services/categories.service'
@@ -50,7 +52,8 @@ import { HistoryFilterComponent } from './history-page/history-filter/history-fi
       HistoryChartComponent,
       HistoryEventsComponent,
       HistoryDetailComponent,
-      HistoryFilterComponent
+      HistoryFilterComponent,
+      FilterPipe
     ],
   providers:[BillService, CategoriesService, EventsService]
   })
