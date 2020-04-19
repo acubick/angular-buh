@@ -14,6 +14,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
 
   // флаг загрузки компонеента
   isLoaded = false
+  isFilterVisible = false
   //Переменная для отмены подпискм
   s1: Subscription
 
@@ -62,8 +63,26 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
     })
   }
 
+  toggleFilterVisibility(dir: boolean){
+     this.isFilterVisible = dir
+  }
+
+  openFilter() {
+     this.toggleFilterVisibility(true)
+  }
+
+  onFilterApply(filterData) {
+    console.log('filterData', filterData )
+  }
+
+  onFilterCancel() {
+      this.toggleFilterVisibility(false)
+  }
+
+
   ngOnDestroy(): void {
     if(this.s1) this.s1.unsubscribe()
   }
+
 
 }

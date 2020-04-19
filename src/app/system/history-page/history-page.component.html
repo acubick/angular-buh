@@ -1,7 +1,12 @@
 <div class="title-block">
-  <h3 class="title">
+  <h3 class="title pull-left">
     Страница истории <span class="sparkline bar"></span>
   </h3>
+  <div class="pull-right">
+    <button class="btn-sm btn btn-primary-outline" (click)="openFilter()">
+      <i class="fa fa-filter"></i>
+    </button>
+  </div>
 </div>
 
 <div *ngIf="!isLoaded" class="text-center">
@@ -14,9 +19,11 @@
   [categories] = "categories"
   [events] = "events"
   ></app-history-events>
-
-
-  <!--MODAL-->
-  <app-history-filter></app-history-filter>
-  <!--MODAL-->
+  <div *ngIf="isFilterVisible">
+    <app-history-filter
+    (onFilterApply)="onFilterApply($event)"
+    (onFilterCancel)="onFilterCancel()"
+    [categories]="categories"
+    ></app-history-filter>
+  </div>
 </div>
