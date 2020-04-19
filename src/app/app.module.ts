@@ -7,9 +7,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module'
+import { AuthGuard } from './shared/services/auth.guard'
 import { AuthService } from './shared/services/auth.service'
+import { UsersService } from './shared/services/users.service'
 import { SharedModule } from './shared/shared.module'
-import { SystemModule } from './system/system.module'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { SystemModule } from './system/system.module'
     BrowserAnimationsModule,
 
   ],
-  providers: [AuthService],
+  providers: [UsersService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
