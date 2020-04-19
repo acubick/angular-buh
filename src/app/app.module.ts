@@ -21,7 +21,6 @@ import { SystemModule } from './system/system.module'
     AuthModule,
     SharedModule,
     HttpClientModule,
-    SystemModule,
     BrowserAnimationsModule,
 
   ],
