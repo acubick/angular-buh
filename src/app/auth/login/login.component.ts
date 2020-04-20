@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Params, Router } from '@angular/router'
+import { fadeStateTrigger } from '../../shared/animations/fade.animation'
 import { Message } from '../../shared/models/message.model'
 import { User } from '../../shared/models/user.model'
 import { AuthService } from '../../shared/services/auth.service'
@@ -9,7 +10,8 @@ import { UsersService } from '../../shared/services/users.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class LoginComponent implements OnInit {
 
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
         Validators.minLength( 6 )
       ] )
     } );
-    this.message = new Message( '', 'danger')
+    this.message = new Message( 'danger', '')
 
     this.route.queryParams
         .subscribe((params: Params) => {

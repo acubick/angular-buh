@@ -1,8 +1,10 @@
 <p class="text-xs-center">Войдите для работы</p>
 
   <div
+    @fade
     *ngIf="message.text"
-    class="alert alert-{{ message.type }}">
+    class="alert alert-{{message.type}}"
+  >
        {{ message.text }}
   </div>
 <!-- /.alert -->
